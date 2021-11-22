@@ -1,0 +1,10 @@
+goos: linux
+goarch: amd64
+pkg: local
+cpu: Intel(R) Core(TM) i7-4600M CPU @ 2.90GHz
+BenchmarkAssertByXMLMarshal-4             156136              7389 ns/op
+BenchmarkAssertByJSONMarshal-4            906204              1312 ns/op
+BenchmarkAssertByReflect-4               8409387               147.0 ns/op
+BenchmarkAssertByUnsafe-4               659302846                1.753 ns/op
+PASS
+ok      local   5.164s
