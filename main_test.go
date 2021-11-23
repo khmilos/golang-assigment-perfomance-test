@@ -4,6 +4,12 @@ import (
 	"testing"
 )
 
+func BenchmarkAssertBase(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		AssertBase(&OneOfExternalStruct{"struct_id", "unique_field"})
+	}
+}
+
 func BenchmarkAssertByTypeSwitch(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		AssertByTypeSwitch(&OneOfExternalStruct{"struct_id", "unique_field"})
