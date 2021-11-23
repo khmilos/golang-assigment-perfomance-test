@@ -4,6 +4,12 @@ import (
 	"testing"
 )
 
+func BenchmarkAssertByTypeSwitch(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		AssertByTypeSwitch(&OneOfExternalStruct{"struct_id", "unique_field"})
+	}
+}
+
 func BenchmarkAssertByXMLMarshal(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		AssertByXMLMarshal(&OneOfExternalStruct{"struct_id", "unique_field"})

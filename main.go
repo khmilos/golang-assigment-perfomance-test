@@ -21,10 +21,21 @@ type LocalStruct struct {
 
 func main() {
 	value := &OneOfExternalStruct{"struct_id", "unique_field"}
+	fmt.Println(AssertByTypeSwitch(value))
 	fmt.Println(AssertByXMLMarshal(value))
 	fmt.Println(AssertByJSONMarshal(value))
 	fmt.Println(AssertByReflect(value))
 	fmt.Println(AssertByUnsafe(value))
+}
+
+// Only for comparison
+func AssertByTypeSwitch(i interface{}) string {
+	switch v := i.(type) {
+	case OneOfExternalStruct:
+		return v.ID
+	default:
+		return ""
+	}
 }
 
 func AssertByXMLMarshal(i interface{}) string {
